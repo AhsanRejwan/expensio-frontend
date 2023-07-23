@@ -54,7 +54,7 @@ export const TopbarProfileMenu = (props: TopbarProfileMenuProps) => {
                             <Menu.Item key={menuItem.label}>
                                 {
                                     () => (
-                                        <a className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
+                                        <a className="py-2 font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-200 dark:hover:bg-slate-600/80 flex items-center py-1 px-3"
                                            href={menuItem.link}>{menuItem.label}</a>
                                     )
                                 }
@@ -66,8 +66,13 @@ export const TopbarProfileMenu = (props: TopbarProfileMenuProps) => {
                             () => (
                                 <button
                                     onClick={() => setTheme(theme === ColorThemes.LIGHT ? ColorThemes.DARK : ColorThemes.LIGHT)}
-                                    className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3">
-                                    {theme === ColorThemes.LIGHT ? 'Dark Mode' : 'Light Mode'}
+                                    className=" w-full font-medium text-sm text-indigo-500 hover:text-indigo-600 hover:bg-slate-200 dark:hover:bg-slate-600/80 dark:hover:text-indigo-400 flex items-center py-1 px-3">
+                                    <span>{theme === ColorThemes.LIGHT ? 'Dark Mode' : 'Light Mode'}</span>
+                                    <span
+                                        className="ml-2 flex items-center justify-center cursor-pointer w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full">
+                                        <Icon iconName={theme === ColorThemes.LIGHT ? 'moonlight' : 'daylight'}
+                                              className="w-4 h-4"/>
+                                    </span>
                                 </button>
                             )
                         }
